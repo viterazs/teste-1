@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Botpress Webchat -->
+    <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/09/11/19/20250911190621-JM96R9IU.js" defer></script>
+
+    <style>
+        /* Esconde o widget padrão do Botpress */
+        body iframe[src*="botpress"] {
+            display: none !important;
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <title>Starbucks - It's not just Coffee</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+            transition: background 0.5s ease;
+        }
+
+        .circulo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #017143;
+            clip-path: circle(600px at right 800px);
+            transition: background 0.5s ease;
+            z-index: -1;
+        }
+
+        .logo {
+            position: absolute;
+            top: 40px;
+            left: 80px;
+            max-width: 80px;
+            z-index: 10;
+        }
+
+        .caixa-conteudo {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .caixa-textos {
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .caixa-textos h2 {
+            color: #333;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .texto-starbucks {
+            color: #017143;
+            font-size: 4rem;
+            font-weight: 700;
+        }
+
+        .paragrafo {
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background: #017143;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(1, 113, 67, 0.3);
+        }
+
+        button:hover {
+            background: #015c36;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(1, 113, 67, 0.4);
+        }
+
+        .caixa-imagem {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .imagem-copo {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .caixa-menu {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        .botao-menu {
+            max-width: 80px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .botao-menu:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Responsivo */
+        @media (max-width: 1024px) {
+            .logo {
+                left: 40px;
+                top: 30px;
+                max-width: 60px;
+            }
+
+            .caixa-conteudo {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 100px;
+            }
+
+            .caixa-textos h2 {
+                font-size: 2.5rem;
+            }
+
+            .texto-starbucks {
+                font-size: 3rem;
+            }
+
+            .caixa-imagem {
+                width: 100%;
+                height: 400px;
+            }
+
+            .imagem-copo {
+                max-width: 300px;
+            }
+
+            .caixa-menu {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                justify-content: center;
+                margin-top: 40px;
+            }
+
+            .circulo {
+                clip-path: circle(400px at center 200px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .caixa-textos h2 {
+                font-size: 2rem;
+            }
+
+            .texto-starbucks {
+                font-size: 2.5rem;
+            }
+
+            .imagem-copo {
+                max-width: 250px;
+            }
+
+            .botao-menu {
+                max-width: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="circulo"></div>
+
+    <img src="img/logo.png" alt="Logo Starbucks" class="logo">
+
+    <div class="caixa-conteudo">
+        <div class="caixa-textos">
+            <h2>Não é apenas um <br>Café <span class="texto-starbucks">Starbucks</span></h2>
+            <p class="paragrafo">
+                No Starbucks, cada xícara vai além do café — é uma experiência.
+                Grãos selecionados, torrefação perfeita e o aroma inconfundível que desperta seus sentidos.
+                Descubra nossos sabores exclusivos e viva o prazer de saborear um café preparado com paixão e dedicação
+                em cada detalhe.
+            </p>
+            <button onclick="abrirChat()">Faça seu Agendamento ☕</button>
+        </div>
+
+        <div class="caixa-imagem">
+            <img src="img/img1.png" alt="Copo Starbucks" class="imagem-copo" id="imagemCopo">
+        </div>
+    </div>
+
+    <div class="caixa-menu">
+        <img src="img/thumb1.png" alt="Verde" class="botao-menu" onclick="mudarCor('#017143', 'img/img1.png')">
+        <img src="img/thumb2.png" alt="Rosa" class="botao-menu" onclick="mudarCor('#eb7495', 'img/img2.png')">
+        <img src="img/thumb3.png" alt="Roxo" class="botao-menu" onclick="mudarCor('#d752b1', 'img/img3.png')">
+    </div>
+
+    <script>
+        function mudarCor(cor, imagem) {
+            const circulo = document.querySelector('.circulo');
+            const textoStarbucks = document.querySelector('.texto-starbucks');
+            const botao = document.querySelector('button');
+            const imagemCopo = document.getElementById('imagemCopo');
+
+            // Muda a cor de fundo
+            circulo.style.background = cor;
+
+            // Muda a cor do texto Starbucks
+            textoStarbucks.style.color = cor;
+
+            // Muda a cor do botão
+            botao.style.background = cor;
+
+            // Muda a imagem do copo se fornecida
+            if (imagem) {
+                imagemCopo.src = imagem;
+            }
+        }
+
+        function abrirChat() {
+            // Tenta abrir o chat do Botpress
+            if (window.botpressWebChat) {
+                window.botpressWebChat.sendEvent({ type: 'show' });
+            } else {
+                alert('Chat será aberto em breve! Aguarde o carregamento completo da página.');
+            }
+        }
+
+        // Animação de entrada
+        window.addEventListener('load', () => {
+            document.querySelector('.caixa-textos').style.opacity = '0';
+            document.querySelector('.caixa-imagem').style.opacity = '0';
+
+            setTimeout(() => {
+                document.querySelector('.caixa-textos').style.transition = 'opacity 1s ease';
+                document.querySelector('.caixa-textos').style.opacity = '1';
+            }, 200);
+
+            setTimeout(() => {
+                document.querySelector('.caixa-imagem').style.transition = 'opacity 1s ease';
+                document.querySelector('.caixa-imagem').style.opacity = '1';
+            }, 400);
+
+            // Force o widget do Botpress para o canto
+            setTimeout(() => {
+                const container = document.querySelector('#bp-web-widget-container');
+                if (container) {
+                    container.style.position = 'fixed';
+                    container.style.bottom = '20px';
+                    container.style.right = '20px';
+                    container.style.top = 'auto';
+                    container.style.left = 'auto';
+                    container.style.transform = 'none';
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
